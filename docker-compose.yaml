@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: postgres-test
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_USER=dbuser
+      - POSTGRES_DB=quillsample
+      - POSTGRES_PASSWORD=passdbword
